@@ -1,0 +1,104 @@
+{% extends 'webpage/base.html' %}
+{% block content %}
+				<!-- END Side panel -->
+			 
+			<section class="full-screen-slider">
+
+				<div class="item dark-bg" style="background-image: url(https://i.imgur.com/aXLoILe.jpg);">
+					<div class="fw-container centered-container tal">
+						<h1>Meet the Artist</h1>
+						<p>Nicole Feinholz | Actor, Filmmaker, Photographer.</p>
+						<a href="{% url 'contact' %}" class="button-style1"><span>Contact</span></a>
+					</div>
+				</div>
+				
+
+				<div class="item dark-bg" style="background-image: url(https://i.imgur.com/S2QIq12.jpg);">
+					<div class="fw-container centered-container tac">
+						<h1>Films</h1>
+						<p></p>
+						<a href="{% url 'movie_list' %}" class="button-style1"><span>Discover my work</span></a>
+					</div>
+				</div>
+
+				<div class="item dark-bg" style="background-image: url(https://i.imgur.com/HMjY2Z5.jpg);">
+					<div class="fw-container centered-container tar">
+						<h1>Photography</h1>
+						<p></p>
+						<a href="{% url 'photo_list' %}" class="button-style1"><span>Check out my gallery</span></a>
+					</div>
+				</div>
+
+			</section> 
+			<!-- END Full scren slider -->
+			<!-- Info section -->
+			<section class="fw-main-row padding-on info-section c18-no-slider c18-dark-bg">
+				<div class="fw-container full">
+					<!-- Info section image -->
+					<div class="fw-col-xs-12 fw-col-md-4 fw-col-lg-6 is-col">
+						<div class="side-image c18-inner-border" style="background-image: url('https://i.imgur.com/Rmqr9Ao.jpg'); border:7px solid white;">
+							<img src="https://i.imgur.com/Rmqr9Ao.jpg" alt="thats me">
+						</div>
+					</div>
+					<!-- END Info section image -->
+					<!-- Info section text -->
+					<div class="fw-col-xs-12 fw-col-md-8 fw-col-lg-6 is-col tac">
+						<div class="is-text clearfix c18-image-outline-black">
+							<h5 style="margin-bottom:60px;">Actor, Director and Producer</h5>
+							<h1 class="heading-decor">NICOLE FEINHOLZ</h1>
+							<p>Proud founder of my own production company currently based in Tel Aviv, Israel. <br> My works include UNFILTERED (2017), Clown Cult (2018) and Senses (2018). </p>
+							<a href="https://www.imdb.com/name/nm8606561/" class="button-style1" style="margin-top: 45px;margin-bottom: 65px;"><span>FIND ME ON IMDB</span></a>
+						</div>
+					</div>
+					<!-- END Info section text -->
+				</div>
+			</section>
+			<!-- END Info section -->
+			<!-- Portfolio categories -->
+			<div class="fw-main-row c18-hypno-bg" style="padding: 15px 0;">
+				<h2 class="heading-decor" style="padding: 15px 0">PHOTOGRAPHY</h2>
+				<div class="fw-container full">
+						{% for pic in featured_photos  %}
+						<div class="fw-col-xs-12 fw-col-sm-6 fw-col-md-4 fw-col-lg-3">
+						<div class="portfolio-cat-item" style="background-image: url('{{ pic.image.url }}');"><a href="/photographs/{{ pic.slug }}"><span>{{ pic.name }}</span></a></div>
+						</div>
+						{% endfor %}
+				</div>
+			</div>
+			<!-- END Portfolio categories -->
+						
+			<!-- Reviews slider -->
+			<section class="fw-main-row c18-hypno-bg" style="padding: 45px 0 50px;">
+				<h2 class="heading-decor">FILMS</h2>
+				<div class="fw-container full">
+					<div class="reviews-slider">
+						{% for item in featured_movies %}
+						<div class="item">
+							<h5 class="c18-no-margin">{{ item.name }}</h5>
+							<small>{{ item.country }} ({{ item.year }})</small>
+							<div class="image"><a href="/movies/{{ item.slug }}"><img src="{{ item.poster.url }}" alt="upload a poster from admin panel" style="height:300px; width:200px; object-fit:cover;"></a></div>
+							<div class="text">{{ item.synopsis }}</div>
+							<div class="name"><a target="_blank" href="{{ item.trailer_link }}">WATCH TRAILER</a></div>
+							<a href="/movies/{{ item.slug }}" class="button-style1" style="margin-top: 45px;margin-bottom: 65px;"><span>View Detail</span></a>	
+						</div>
+						{% endfor %}
+						
+					</div>
+				</div>
+			</section>
+			<!-- END Reviews slider -->
+
+			<!-- Big banner -->
+			<section class="fw-main-row dark-bg" style="height:470px; background-image: url(https://i.imgur.com/9kzAj9J.jpg);">
+				<div class="fw-container centered-container tal">
+					<h5>Inquiries and additional info</h5>
+					<h1 class="heading-decor">Get in contact</h1>
+					<p><i>I'll get back to you ASAP</i></p>
+					<a href="javascript:void(0);" class="button-style1 white"><span>Contact</span></a>
+				</div>
+			</section>
+			<!-- END Big banner -->
+			
+	
+{% endblock content %}
+			

@@ -1,0 +1,50 @@
+{% extends 'webpage/base.html' %}
+{% block content %}
+
+<style type="text/css">
+	.gallery-item {
+		height:auto;
+	}
+</style>
+				
+			<div class="header-space"></div>
+			<!-- END Header space -->
+			<!-- Item filter -->
+			<section class="fw-main-row c18-hypno-bg" style="padding: 40px 0;">
+				<div class="fw-container full">
+					<h1 class="heading-decor">Gallery</h1>
+					  
+					<div class="button-group filter-button-group">
+						<button data-filter="*" class="active-tab">all posts</button>
+
+						{% for cat in object_list %}							
+								<button data-filter=".{{ cat.collection }}">{{ cat.collection }}</button>
+						{% endfor %}
+						
+					</div>
+					
+					<!-- END Filter buttons -->
+					<div class="cf-items fw-row masonry">
+
+						<!-- Gallery item -->
+						{% for pic in object_list  %}							
+						<div class="cf-item gallery-item fw-col-xs-12 fw-col-sm-4 {{ pic.collection }}">
+							<a href="/photographs/{{ pic.slug }}">
+								<img src="{{ pic.image.url }}" alt="Gallery item">
+								<div>
+									<div class="name">{{ pic.name }}</div>
+									<div class="text">{{ pic.description }}</div>
+								</div>
+							</a>
+						</div>
+						{% endfor %}
+						
+						<!-- END Gallery item -->
+					</div>
+				</div>
+			</section>
+			<!-- END Item filter -->
+			
+	
+{% endblock content %}
+			

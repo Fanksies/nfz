@@ -1,0 +1,65 @@
+{% extends 'webpage/base.html' %}
+{% block content %}
+
+	<!-- Header space -->
+			<div class="header-space"></div>
+			<!-- END Header space -->
+			
+			<section class="fw-main-row c18-hypno-bg" style="padding: 30px 0 50px;">
+				<div class="fw-container">					
+					<div class="fw-row" style="padding: 50px 0 0;">
+
+						<h2 class="heading-decor">{{ movie.name }}</h2>
+						<p class="tac t-text">Directed by {{ movie.director }}, {{ movie.country }}, {{ movie.year }} </p>						
+						
+					</div>
+
+					<!-- Movie row -->
+					<div class="fw-row" style="margin-top:1em;">
+						<div class="fw-col-md-4 tac" style="border-right:4px solid black;">
+							<img src="{{ movie.poster.url }}" style="object-fit:cover; width:250px; height:350px;">
+							<p class="c18-s-text">{{ movie.synopsis }}</p>
+						</div>
+						<div class="fw-col-md-8">
+							<div class="fluid-width-video-wrapper" style="width:100%">
+								{% if movie.trailer %}	
+									<iframe src="{{ movie.trailer }}" allowfullscreen="" id="fitvid0" style="height: 350px;width: 100%;" frameborder="0"></iframe>
+								{% else %}
+									<img src="https://via.placeholder.com/800x450/ff7f7f/fff/?text=No trailer uploaded">
+								{% endif %}
+							</div>
+
+							{% if movie.moviequote %}								
+								<blockquote>"{{ movie.moviequote.text}}" </blockquote> 
+								<div class="tar"><strong>-{{ movie.moviequote.author }}</strong></div>
+							{% endif %}
+
+						</div>
+					</div>		
+
+					{% if object.moviestill %}
+	
+					<div class="fw-row" style="margin-top:1em;">
+						<h4 class="tac">Stills</h4>
+
+						{% for pics in object.moviestill_set.all %}
+
+						<div class="fw-col-md-4" style="margin:15px 0">
+							<div class="lightbox">
+								{% if pics.image %}	
+									<img src="{{ pics.image.url }}">
+								{% endif %}
+							</div>
+						</div>
+
+						{% endfor %}
+										
+					</div>	
+
+					{% endif %}
+					
+				</div>
+			</section>
+	
+{% endblock content %}
+		

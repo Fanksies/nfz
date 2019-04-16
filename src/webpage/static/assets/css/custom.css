@@ -1,0 +1,92 @@
+/* custom styles @ comuna18 */
+
+
+
+.c18-no-slider {
+    padding-top:120px !important;
+}
+
+.c18-ash-bg {
+    background: #ededed;
+}
+
+.c18-no-margin {
+    margin:0;
+}
+
+.c18-no-padding {
+    padding: 0;
+}
+
+.c18-dark-bg {
+    background: url('https://i.imgur.com/5xSyAah.png');
+}
+
+.c18-image-outline-white {
+    outline: 7px solid white;
+    outline-offset: -27px;
+}
+
+.c18-image-outline-black {
+    outline: 7px solid black;
+    outline-offset: -27px;
+}
+
+.c18-hypno-bg {
+    background: url('https://i.imgur.com/iOrTf95.png');
+}
+
+.horisontal .gallery-item img {
+    height: 300px;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.cf-items.horisontal {
+    width: calc(100% + 5em);
+}
+
+.c18-poster {
+   background-image: url(https://m.media-amazon.com/images/M/MV5BZGU3MWRkZDMtMTcwZi00OTM0LWE4ZmQtNjU5M2YwYzlmMDcxXkEyXkFqcGdeQXVyNjI2MjkxMDQ@._V1_SY1000_CR0,0,749,1000_AL_.jpg);
+    width: 275px;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 0;
+    right: 0;
+    margin: 10px auto;
+    background-position: 100%;
+}
+
+.gallery-item {
+    height:400px;
+}
+
+.c18-flex {
+    display:flex;
+}
+
+.c18-collection-text {
+    text-align: right;
+    margin: 10px;
+    color: #bcbcbc;
+    font-size: 15px;
+}
+
+.c18-s-text {
+    font-size: 12px;
+}
+
+.c18-camera-used {
+    text-align: center;
+    margin: 10px;
+    color: #bcbcbc;
+    font-size: 10px;   
+    text-transform: uppercase;
+}
+
+
+.c18-flex-center {
+    justify-content: center;
+}

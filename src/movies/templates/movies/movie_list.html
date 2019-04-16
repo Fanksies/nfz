@@ -1,0 +1,66 @@
+{% extends 'webpage/base.html' %}
+{% block content %}
+<!-- Header space -->
+			<div class="header-space"></div>
+			<!-- END Header space -->
+			<!-- Item filter -->
+			<section class="fw-main-row c18-hypno-bg" id="FILMS" style="padding: 40px 0;">
+
+				<div class="fw-container full">
+					<h1 class="heading-decor">FILMS</h1>
+					
+					<div class="fw-row">
+						<div class="fw-container c18-flex c18-flex-center"> 
+
+							<!-- Gallery item -->
+							{% for item in object_list %}
+								
+							<div class="gallery-item fw-col-xs-12 fw-col-sm-3 fw-text-center">
+								<div class="c18-poster" style="background-image:url('{{ item.poster.url }}')">
+									<a href="/movies/{{ item.slug }}">
+										<div>
+											<div class="name">{{ item.name }}</div>
+											<div class="text">{{ item.synopsis }}</div>
+										</div>
+									</a>
+								</div>	
+
+							</div>
+							<!-- END Gallery item -->
+							{% endfor %}
+							
+							
+						</div>
+
+					</div>
+
+				</div>
+			</section>	
+
+			<section class="fw-main-row c18-dark-bg" id="DEMO-REEL" style="padding:40px 0;">
+
+					<div class="fw-container full">	
+						<h1 class="heading-decor" style="margin-top:1em; color:white;">DEMO REEL</h1>
+						
+						<div class="fw-row">
+							<div class="fw-container c18-flex c18-flex-center">
+
+								<!-- Gallery item -->
+								<div class="fluid-width-video-wrapper" style="width:100%">
+									<iframe src="https://www.youtube.com/embed/i3aFJpQ1e5I" allowfullscreen="" id="fitvid0" style="height: 450px;width: 100%;" frameborder="0"></iframe>
+								</div>
+								
+								
+							</div>
+
+						</div>
+					</div>	
+
+			</section>
+
+
+				
+			<!-- END Item filter -->
+
+{% endblock content %}
+			
